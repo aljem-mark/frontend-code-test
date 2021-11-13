@@ -4,7 +4,7 @@ import envelope from '@assets/images/envelope-solid.svg';
 import infoCircle from '@assets/images/info-circle-solid.svg';
 import { instance as axios } from '@/common/axios/instance';
 
-function Login({ history }) {
+function Login() {
   const fields = {
     email: '',
     password: '',
@@ -13,7 +13,7 @@ function Login({ history }) {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [cookies, setCookie] = useCookies();
+  const [cookies, setCookie] = useCookies(['bearer']);
 
   const validate = (values) => {
     let errors = {};
@@ -47,7 +47,7 @@ function Login({ history }) {
         email: values.email,
         password: values.password,
       });
-      setCookie('bearer', data);
+      setCookie('bearer', data, { path: '/' });
       setSuccess(true);
     } catch (error) {
       setErrors({ response: error.response.data });

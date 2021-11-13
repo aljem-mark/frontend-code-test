@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import AuthRoute from './components/routes/AuthRoute';
+import AuthRoute from './components/Route/AuthRoute';
 import Login from './pages/Login';
 import Devices from './pages/Devices';
 
