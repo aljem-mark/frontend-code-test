@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { instance as axios, axiosAuth } from '@/common/axios/instance';
+import Swal from 'sweetalert2';
 
 function Devices() {
   const [devices, setDevices] = useState([]);
@@ -26,12 +27,12 @@ function Devices() {
         name: 'Aljem Mark Aviola',
         email: 'speakout.aljem@gmail.com',
         repoUrl: 'https://github.com/aljem-mark/frontend-code-test',
-        message: "Don't be so picky, if there's a hole, there's a goal.",
+        message:
+          "Don't be so picky, if there's a hole, there's a goal, even if she has a PP.",
       });
-
-      console.log(data);
+      Swal.fire({ icon: 'success', title: 'Success', text: data, timer: 2000 });
     } catch (error) {
-      console.log(error);
+      Swal.fire({ icon: 'error', title: 'Opss...', text: error.response.data });
     }
   };
 
@@ -67,6 +68,7 @@ function Devices() {
           ))}
         </div>
       )}
+
       <div className="devices__buttons">
         <button
           className="uppercase text-xs text-black bg-white py-3 px-8 rounded font-bold"
