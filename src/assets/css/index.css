@@ -2,6 +2,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes rotateClockwise {
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes rotateCounterClockwise {
+  100% {
+    transform: rotate(-360deg); } }
+
 body {
   font-family: 'Roboto', sans-serif;
   @apply text-sm; }
@@ -21,3 +29,67 @@ input:focus-visible {
 
 .form__input-group-icon {
   @apply inline-block w-5 mr-3; }
+
+.devices__buttons {
+  @apply absolute bottom-0 flex gap-x-3 inset-x-0 items-center justify-center py-5;
+  background: rgba(0, 0, 0, 0.1); }
+
+.orbit-dot {
+  @apply h-64 absolute;
+  top: -60px;
+  left: calc(50% - 20px); }
+  .orbit-dot:before {
+    @apply bg-white block;
+    content: '';
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }
+  .orbit-dot--0 {
+    animation: rotateClockwise calc(12s - 0s) linear infinite; }
+    .orbit-dot--0::before {
+      background: #daa0a0; }
+  .orbit-dot--1 {
+    animation: rotateClockwise calc(12s - 1s) linear infinite; }
+    .orbit-dot--1::before {
+      background: #69a60b; }
+  .orbit-dot--2 {
+    animation: rotateClockwise calc(12s - 2s) linear infinite; }
+    .orbit-dot--2::before {
+      background: #55b8cd; }
+  .orbit-dot--3 {
+    animation: rotateClockwise calc(12s - 3s) linear infinite; }
+    .orbit-dot--3::before {
+      background: #0d97e8; }
+  .orbit-dot--4 {
+    animation: rotateClockwise calc(12s - 4s) linear infinite; }
+    .orbit-dot--4::before {
+      background: #58f1b6; }
+  .orbit-dot--5 {
+    animation: rotateClockwise calc(12s - 5s) linear infinite; }
+    .orbit-dot--5::before {
+      background: #d81cbf; }
+  .orbit-dot--6 {
+    animation: rotateClockwise calc(12s - 6s) linear infinite; }
+    .orbit-dot--6::before {
+      background: #a99574; }
+  .orbit-dot--7 {
+    animation: rotateClockwise calc(12s - 7s) linear infinite; }
+    .orbit-dot--7::before {
+      background: #c9b81f; }
+  .orbit-dot--8 {
+    animation: rotateClockwise calc(12s - 8s) linear infinite; }
+    .orbit-dot--8::before {
+      background: #f99099; }
+  .orbit-dot--9 {
+    animation: rotateClockwise calc(12s - 9s) linear infinite; }
+    .orbit-dot--9::before {
+      background: #4a4c0a; }
+  .orbit-dot--10 {
+    animation: rotateClockwise calc(12s - 10s) linear infinite; }
+    .orbit-dot--10::before {
+      background: #1fcf09; }
+  .orbit-dot--11 {
+    animation: rotateClockwise calc(12s - 11s) linear infinite; }
+    .orbit-dot--11::before {
+      background: #32cb71; }

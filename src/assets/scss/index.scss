@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import './keyframes.scss';
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -33,4 +34,38 @@ input:focus-visible {
 
 .form__input-group-icon {
     @apply inline-block w-5 mr-3;
+}
+
+.devices__buttons {
+    @apply absolute bottom-0 flex gap-x-3 inset-x-0 items-center justify-center py-5;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.orbit-dot {
+    @apply h-64 absolute;
+    top: -60px;
+    left: calc(50% - 20px);
+
+    &:before {
+        @apply bg-white block;
+        content: '';
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+    $rotation: rotateClockwise;
+    @for $i from 0 through 11 {
+        // @if $i % 2 == 0 {
+        //     $rotation: rotateClockwise;
+        // } @else {
+        //     $rotation: rotateCounterClockwise;
+        // }
+        &--#{$i} {
+            animation: $rotation calc(12s - #{$i}s) linear infinite;
+            &::before {
+                background: rgb(random(255), random(255), random(255));
+            }
+        }
+    }
 }
